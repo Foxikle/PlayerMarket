@@ -1,0 +1,4 @@
+name: PlayerMarket
+version: '${version}'
+main: dev.foxikle.playermarket.PlayerMarket
+api-version: 1.20
