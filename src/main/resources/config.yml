@@ -1,0 +1,802 @@
+#  _____    _                                      __  __                  _             _
+# |  __ \  | |                                    |  \/  |                | |           | |
+# | |__) | | |   __ _   _   _    ___   _ __       | \  / |   __ _   _ __  | | __   ___  | |_
+# |  ___/  | |  / _` | | | | |  / _ \ | '__|      | |\/| |  / _` | | '__| | |/ /  / _ \ | __|
+# | |      | | | (_| | | |_| | |  __/ | |         | |  | | | (_| | | |    |   <  |  __/ | |_
+# |_|      |_|  \__,_|  \__, |  \___| |_|         |_|  |_|  \__,_| |_|    |_|\_\  \___|  \__|
+#                        __/ |
+#                       |___/
+#
+#
+# Welcome to the Player Market config file. There are a few rules when editing YML files.
+# 1. NEVER, EVER use tabs. Always use 2 spaces.
+# 2. A '#' means the line is commented out. The server will ignore the line.
+# 3. If you delete a portion of the config, you can delete the 'config.yml' and a new one
+#    will be automatically generated on the next server start.
+
+# Order Timeout determines how long an order is active for (in minutes). Set to -1 to disable.
+OrderTimeout: 10080 # 1 week
+
+# Max Orders determines the maximum amount of orders a player can have at once
+MaxOrders: 14
+
+# Max Income Per Day determines the maximum ammount of currency a player can claim per day.
+MaxIncomePerDay: 1000000 # 1 million
+
+# Tax Rates determine how much is taken as a tax
+InstantBuyTax: 0.05 #5%
+InstantSellTax: 0.05 # 5%
+SellOrderTax: 0.03 # 3%
+BuyOrderTax: 0.025 # 2.5%
+
+# Cross Fill determines if the plugin should fill buy orders if the price is above the lowest sell price
+CrossFill: true # If the sell order for wool is 3 coins and the buy price is 7 coins, the buy order will be filled and the difference voided.
+
+# ItemIdKey helps the plugin identify custom Items. If unsure, leave it as 'minecraft'
+ItemIdKey: 'minecraft'
+
+# Database Credentials
+
+# sqlHost: -> Hostname for the database
+sqlHost: localhost
+
+# sqlPort: -> the port for the database (On most it defaults to 3306)
+sqlPort: 3301
+
+# sqlName: -> the name of the database
+sqlName: playerMarket
+
+# sqlUsername: -> the username for the plugin to use
+sqlUsername: root
+
+# sqlPassword: -> the password for the plugin to use
+sqlPassword: password
+
+# Menus Lets you control the pages. (Maximum of 5)
+pages:
+  MINING: #Stones, ores, excavatables
+    icon: NETHERITE_PICKAXE
+    title: '&bMining'
+    product_families:
+      STONES:
+        icon: STONE
+        title: '&eStones'
+        products:
+          SANDSTONE:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: SANDSTONE
+          CALCITE:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: CALCITE
+          DIORITE:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: DIORITE
+          ANDESITE:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: ANDESITE
+          COBBLESTONE:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: COBBLESTONE
+          TUFF:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: TUFF
+          COBBLED_DEEPSLATE:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: COBBLED_DEEPSLATE
+          GRANITE:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: GRANITE
+          RED_SANDSTONE:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: RED_SANDSTONE
+      IRON:
+        icon: IRON_INGOT
+        title: '&eIron'
+        products:
+          IRON_INGOT:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: IRON_INGOT
+          RAW_IRON:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: RAW_IRON
+      GOLD:
+        icon: GOLD_INGOT
+        title: '&eGold'
+        products:
+          GOLD_INGOT:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: GOLD_INGOT
+          RAW_GOLD:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: RAW_GOLD
+      COPPER:
+        icon: COPPER_INGOT
+        title: '&eCopper'
+        products:
+          COPPER_INGOT:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: COPPER_INGOT
+          RAW_COPPER:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: RAW_COPPER
+      EMERALD:
+        icon: EMERALD
+        title: '&eEmerald'
+        products:
+          EMERALD:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: EMERALD
+      DIAMOND:
+        icon: DIAMOND
+        title: '&eDiamond'
+        products:
+          DIAMOND:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: DIAMOND
+      LAPIS_LAZULI:
+        icon: LAPIS_LAZULI
+        title: '&eLapis Lazuli'
+        products:
+          LAPIS_LAZULI:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: LAPIS_LAZULI
+      REDSTONE:
+        icon: REDSTONE
+        title: '&eRedstone'
+        products:
+          REDSTONE:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: REDSTONE
+      COAL:
+        icon: COAL
+        title: '&eCoal'
+        products:
+          COAL:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: COAL
+      EXCAVATABLES:
+        icon: SAND
+        title: '&eExcavatables'
+        products:
+          SAND:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: SAND
+          RED_SAND:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: RED_SAND
+          SOUL_SAND:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: SOUL_SAND
+          SOUL_SOIL:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: SOUL_SOIL
+          PODZOL:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: PODZOL
+          ROOTED_DIRT:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: ROOTED_DIRT
+          MYCELIUM:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: MYCELIUM
+          MUD:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: MUD
+      NETHER:
+        icon: NETHERRACK
+        title: '&eNether Materials'
+        products: # Glowstone, quartz, netherrack, ancient debris, Basalt, nyllium, magma blocks
+          GLOWSTONE_DUST:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: GLOWSTONE_DUST
+          QUARTZ:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: QUARTZ
+          NETHERRACK:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: NETHERRACK
+          ACIENT_DEBRIS:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: ANCIENT_DEBRIS
+          BASALT:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: BASALT
+          BLACKSTONE:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: BLACKSTONE
+          MAGMA_BLOCK:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: MAGMA_BLOCK
+          WARPED_NYLIUM:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: WARPED_NYLIUM
+          CRIMSON_NYLIUM:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: CRIMSON_NYLIUM
+      COLD:
+        icon: ICE
+        title: '&eIce'
+        products:
+          SNOW_BLOCK:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: SNOW_BLOCK
+          SNOWBALL:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: SNOWBALL
+          ICE:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: ICE
+          PACKED_ICE:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: PACKED_ICE
+          BLUE_ICE:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: BLUE_ICE
+      END:
+        icon: END_STONE
+        title: '&eEnd Materials'
+        products:
+          ENDSTONE:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: END_STONE
+          PURPUR_BLOCK:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: PURPUR_BLOCK
+      AMETHYST:
+        icon: AMETHYST_SHARD
+        title: '&eAmethyst'
+        products: # shards and blocks
+          AMETHYST_SHARD:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: AMETHYST_SHARD
+          AMETHYST_BLOCK:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: AMETHYST_BLOCK
+      SCULK_TYPES:
+        icon: SCULK_SENSOR
+        title: '&eSculk'
+        products:
+          SCULK:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: SCULK
+          SCULK_CATALYST:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: SCULK_CATALYST
+          SCULK_SHRIEKER:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: SCULK_SHRIEKER
+          SCULK_SENSOR:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: SCULK_SENSOR
+  ARBORY_FISH: #Fishing and trees
+    icon: FISHING_ROD
+    title: '&bWood and Fish'
+    product_families:
+      Fish:
+        icon: COD
+        title: '&eFish'
+        products: # salmon, cod, clownfish, etc
+          COD:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: COD
+          SALMON:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: SALMON
+          TROPICAL_FISH:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: TROPICAL_FISH
+          PUFFERFISH:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: PUFFERFISH
+      INK:
+        icon: INK_SAC
+        title: '&eInk'
+        products:
+          INk_SAC:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: INK_SAC
+          GOLD_INGOT:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: GLOW_INK_SAC
+      PRISMARINE:
+        icon: PRISMARINE_CRYSTALS
+        title: '&ePrismarine'
+        products:
+          PRISMARINE_CRYSTALS:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: PRISMARINE_CRYSTALS
+          PRISMARINE_SHARD:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: PRISMARINE_SHARD
+      OAK:
+        icon: OAK_LOG
+        title: '&eOak'
+        products:
+          OAK_LOG:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: OAK_LOG
+          OAK_SAPLING:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: OAK_SAPLING
+      BIRCH:
+        icon: BIRCH_LOG
+        title: '&eBirch'
+        products:
+          BIRCH_LOG:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: BIRCH_LOG
+          BIRCH_SAPLING:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: BIRCH_SAPLING
+      SPRUCE:
+        icon: SPRUCE_LOG
+        title: '&eSpruce'
+        products:
+          SPRUCE_LOG:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: SPRUCE_LOG
+          SPRUCE_SAPLING:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: SPRUCE_SAPLING
+      JUNGLE:
+        icon: JUNGLE_LOG
+        title: '&eJungle'
+        products:
+          JUNGLE_LOG:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: JUNGLE_LOG
+          JUNGLE_SAPLING:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: JUNGLE_SAPLING
+      DARK_OAK:
+        icon: DARK_OAK_LOG
+        title: '&eDark Oak'
+        products:
+          DARK_OAK_LOG:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: DARK_OAK_LOG
+          DARK_OAK_SAPLING:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: DARK_OAK_SAPLING
+      ACACIA:
+        icon: ACACIA_LOG
+        title: '&eAcacia'
+        products:
+          ACACIA_LOG:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: ACACIA_LOG
+          ACACIA_SAPLING:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: ACACIA_SAPLING
+      CRIMSON:
+        icon: CRIMSON_HYPHAE
+        title: '&eCrimson Hyphae'
+        products:
+          CRIMSON_HYPHAE:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: CRIMSON_HYPHAE
+          CRIMSON_FUNGUS:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: CRIMSON_FUNGUS
+      WARPED:
+        icon: WARPED_HYPHAE
+        title: '&eWarped Hyphae'
+        products:
+          WARPED_HYPHAE:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: WARPED_HYPHAE
+          WARPED_FUNGUS:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: WARPED_FUNGUS
+      MANGROVE:
+        icon: MANGROVE_LOG
+        title: '&eMangrove'
+        products:
+          MANGROVE_LOG:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: MANGROVE_LOG
+          MANGROVE_PROPAGULE:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: MANGROVE_PROPAGULE
+      CHERRY:
+        icon: CHERRY_LOG
+        title: '&eCherry'
+        products:
+          CHERRY_LOG:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: CHERRY_LOG
+          CHERRY_SAPLING:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: CHERRY_SAPLING
+      BAMBOO:
+        icon: BAMBOO
+        title: '&eBamboo'
+        products:
+          BAMBOO:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: BAMBOO
+  FARMING: # Crops n' stuff
+    icon: GOLDEN_HOE
+    title: '&bFarming'
+    product_families:
+      PUMPKIN:
+        icon: PUMPKIN
+        title: '&ePumpkins'
+        products:
+          PUMPKIN:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: PUMPKIN
+          PUMPKIN_SEEDS:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: PUMPKIN_SEEDS
+      MELON:
+        icon: MELON_SLICE
+        title: '&eMelons'
+        products:
+          MELON:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: MELON
+          MELON_SEEDS:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: MELON_SEEDS
+      BEETROOT:
+        icon: BEETROOT
+        title: '&eBeetroot'
+        products:
+          BEETROOT:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: BEETROOT
+          BEETROOT_SEEDS:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: BEETROOT_SEEDS
+      WHEAT:
+        icon: WHEAT
+        title: '&eWheat'
+        products:
+          WHEAT:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: WHEAT
+          WHEAT_SEEDS:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: WHEAT_SEEDS
+      CARROT:
+        icon: CARROT
+        title: '&eCarrots'
+        products:
+          CARROT:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: CARROT
+      POTATO:
+        icon: POTATO
+        title: '&ePotato'
+        products:
+          POTATO:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: POTATO
+      NETHER_WART:
+        icon: NETHER_WART
+        title: '&eNether wart'
+        products:
+          NETHER_WART:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: NETHER_WART
+      MUSHROOM:
+        icon: RED_MUSHROOM
+        title: '&eMushrooms'
+        products:
+          RED_MUSHROOM:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: RED_MUSHROOM
+          BROWN_MUSHROOM:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: BROWN_MUSHROOM
+      COCOA:
+        icon: COCOA_BEANS
+        title: '&eCocoa Beans'
+        products:
+          COCOA_BEANS:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: COCOA_BEANS
+      CACTUS:
+        icon: CACTUS
+        title: '&eCactus'
+        products:
+          CACTUS:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: CACTUS
+      SUGAR_CANE:
+        icon: SUGAR_CANE
+        title: '&eSugar cane'
+        products:
+          SUGAR_CANE:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: SUGAR_CANE
+      LEATHER:
+        icon: LEATHER
+        title: '&eLeather & Beef'
+        products:
+          BEEF:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: BEEF
+          LEATHER:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: LEATHER
+      PORK:
+        icon: PORKCHOP
+        title: '&ePork'
+        products:
+          PORKCHOP:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: PORKCHOP
+      CHICKEN:
+        icon: CHICKEN
+        title: '&eChicken & Feathers'
+        products:
+          CHICKEN:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: CHICKEN
+          FEATHER:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: FEATHER
+      MUTTON:
+        icon: MUTTON
+        title: '&eMutton & Wool'
+        products:
+          WHITE_WOOL:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: WHITE_WOOL
+          MUTTON:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: MUTTON
+      RABBIT:
+        icon: RABBIT
+        title: '&eRabbit'
+        products:
+          RABBIT:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: RABBIT
+      BERRIES:
+        icon: SWEET_BERRIES
+        title: '&eBerries'
+        products:
+          SWEET_BERRIES:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: SWEET_BERRIES
+          GLOW_BERRIES:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: GLOW_BERRIES
+      SEA:
+         icon: KELP
+         title: '&eSea plants'
+         products:
+           KELP:
+             ==: org.bukkit.inventory.ItemStack
+             v: 3465
+             type: KELP
+           SCUTE:
+             ==: org.bukkit.inventory.ItemStack
+             v: 3465
+             type: SCUTE
+      BEES:
+        icon: BEEHIVE
+        title: '&eBee Materials'
+        products:
+          HONEYCOMB:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: HONEYCOMB
+          HONEY_BOTTLE:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: HONEY_BOTTLE
+  COMBAT: # Combat related things
+    icon: WOODEN_SWORD
+    title: '&bCombat'
+    product_families:
+      SLIMES:
+        icon: SLIME_BALL
+        title: '&eSlimes'
+        products: #magma cream too!
+          SLIME_BALL:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: SLIME_BALL
+          MAGMA_CREAM:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: MAGMA_CREAM
+      SKELETONS:
+        icon: BONE
+        title: '&eBones'
+        products:
+          BONE:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: BONE
+      ROTTEN_FLESH:
+        icon: ROTTEN_FLESH
+        title: '&eRotten Flesh'
+        products:
+          ROTTEN_FLESH:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: ROTTEN_FLESH
+      ENDER:
+        icon: ENDER_PEARL
+        title: '&eEnd Drops'
+        products: # shulker shells, ender eyes, pearls, dragon heads?
+          ENDER_PEARL:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: ENDER_PEARL
+          ENDER_EYE:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: ENDER_EYE
+          SHULKER_SHELL:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: SHULKER_SHELL
+      GHAST:
+        icon: GHAST_TEAR
+        title: '&eGhast Tears'
+        products:
+          GHAST_TEAR:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: GHAST_TEAR
+      ARACHNIDS:
+        icon: STRING
+        title: '&eArachnids'
+        products:
+          STRING:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: STRING
+          SPIDER_EYE:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: SPIDER_EYE
+      CREEPER:
+        icon: GUNPOWDER
+        title: '&eGunpowder'
+        products:
+          GUNPOWDER:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: GUNPOWDER
+      BLAZE:
+        icon: BLAZE_ROD
+        title: '&eBlaze Rods'
+        products:
+          BLAZE_ROD:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: BLAZE_ROD
+  ODDITIES: #Misc stuff
+    icon: ENCHANTING_TABLE
+    title: '&bOddities'
+    product_families:
+      NOTHING:
+        icon: BARRIER
+        title: '&c&lNothing!'
+        products:
+          AIR:
+            ==: org.bukkit.inventory.ItemStack
+            v: 3465
+            type: AIR
+
+
+
+
+
+
+
+
+
+

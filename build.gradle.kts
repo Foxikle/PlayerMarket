@@ -1,47 +1,51 @@
 plugins {
-    id 'java'
+    java
 }
 
-group = 'dev.foxikle'
-version = '0.1-alpha'
+group = "dev.foxikle"
+version = "0.1"
+description = "testing!"
 
 repositories {
     mavenCentral()
     maven {
         name = "papermc-repo"
-        url = "https://repo.papermc.io/repository/maven-public/"
+        url = uri ("https://repo.papermc.io/repository/maven-public/")
     }
     maven {
         name = "sonatype"
-        url = "https://oss.sonatype.org/content/groups/public/"
+        url = uri ("https://oss.sonatype.org/content/groups/public/")
     }
+    maven ("https://jitpack.io")
 }
 
 dependencies {
-    compileOnly "io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT"
+    compileOnly ("io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT")
+    compileOnly("com.github.MilkBowl:VaultAPI:1.7")
 }
 
-def targetJavaVersion = 17
-java {
-    def javaVersion = JavaVersion.toVersion(targetJavaVersion)
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
-    if (JavaVersion.current() < javaVersion) {
-        toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+tasks {
+    compileJava {
+        options.encoding = Charsets.UTF_8.name() // We want UTF-8 for everything
+        options.release.set(17)
     }
-}
-
-tasks.withType(JavaCompile).configureEach {
-    if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
-        options.release = targetJavaVersion
+    javadoc {
+        options.encoding = Charsets.UTF_8.name() // We want UTF-8 for everything
     }
-}
-
-processResources {
-    def props = [version: version]
-    inputs.properties props
-    filteringCharset 'UTF-8'
-    filesMatching('plugin.yml') {
-        expand props
+    processResources {
+        filteringCharset = Charsets.UTF_8.name() // We want UTF-8 for everything
+        val props = mapOf(
+                "name" to project.name,
+                "version" to project.version,
+                "description" to project.description,
+                "apiVersion" to "1.20"
+        )
+        inputs.properties(props)
+        filesMatching("plugin.yml") {
+            expand(props)
+        }
+    }
+    jar{
+        destinationDirectory.set(file("C:/Users/tscal/Desktop/testserver/plugins"))
     }
 }

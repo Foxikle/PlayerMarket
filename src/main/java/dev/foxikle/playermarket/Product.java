@@ -1,2 +1,7 @@
-package dev.foxikle.playermarket;public class Product {
+package dev.foxikle.playermarket;
+
+import org.bukkit.inventory.ItemStack;
+
+public record Product(ItemStack item, String id) {
+
 }
